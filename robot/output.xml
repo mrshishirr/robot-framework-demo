@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20170503 12:01:52.159" generator="Robot 3.0 (Python 2.7.12 on win32)">
+<suite source="G:\EclipseWorkspace4Selenium\robot\src\main\java\Main.robot" id="s1" name="Main">
+<test id="s1-t1" name="Initialize the environment variables">
+<kw name="Set Environment Variable" library="OperatingSystem">
+<doc>Sets an environment variable to a specified value.</doc>
+<arguments>
+<arg>no_proxy</arg>
+<arg>127.0.0.1</arg>
+</arguments>
+<msg timestamp="20170503 12:01:53.236" level="INFO">Environment variable 'no_proxy' set to value '127.0.0.1'.</msg>
+<status status="PASS" endtime="20170503 12:01:53.236" starttime="20170503 12:01:53.235"></status>
+</kw>
+<kw name="Set Environment Variable" library="OperatingSystem">
+<doc>Sets an environment variable to a specified value.</doc>
+<arguments>
+<arg>webdriver.ie.driver</arg>
+<arg>${local_ie_driver2}</arg>
+</arguments>
+<msg timestamp="20170503 12:01:53.239" level="FAIL">Variable '${local_ie_driver2}' not found. Did you mean:
+    ${local_ie_driver32}
+    ${local_ie_driver64}</msg>
+<status status="FAIL" endtime="20170503 12:01:53.239" starttime="20170503 12:01:53.236"></status>
+</kw>
+<timeout value="2 minutes"></timeout>
+<status status="FAIL" endtime="20170503 12:01:53.239" critical="yes" starttime="20170503 12:01:53.234">Variable '${local_ie_driver2}' not found. Did you mean:
+    ${local_ie_driver32}
+    ${local_ie_driver64}</status>
+</test>
+<test id="s1-t2" name="Open up the agency site">
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${url_google}</arg>
+<arg>ie</arg>
+</arguments>
+<msg timestamp="20170503 12:01:53.241" level="INFO">Opening browser 'ie' to base url 'https://fedhr01.econsys.com/frbweb/logon.do?operation=index&amp;client=NPPD'</msg>
+<status status="PASS" endtime="20170503 12:01:57.341" starttime="20170503 12:01:53.240"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="Selenium2Library">
+<doc>Waits until `text` appears on current page.</doc>
+<arguments>
+<arg>Google</arg>
+</arguments>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20170503 12:01:57.939" level="FAIL">NoSuchWindowException: Message: Unable to get browser
+</msg>
+<status status="FAIL" endtime="20170503 12:01:57.940" starttime="20170503 12:01:57.905"></status>
+</kw>
+<msg timestamp="20170503 12:01:57.940" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: NoSuchWindowException: Message: Unable to get browser
+</msg>
+<msg timestamp="20170503 12:01:57.954" level="FAIL">NoSuchWindowException: Message: Unable to find elements on closed window
+</msg>
+<status status="FAIL" endtime="20170503 12:01:57.954" starttime="20170503 12:01:57.342"></status>
+</kw>
+<kw type="teardown" name="Close All Browsers" library="Selenium2Library">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" endtime="20170503 12:02:00.987" starttime="20170503 12:01:57.956"></status>
+</kw>
+<doc>Basic connectivity test</doc>
+<tags>
+<tag>Smoke</tag>
+</tags>
+<timeout value="2 minutes"></timeout>
+<status status="FAIL" endtime="20170503 12:02:00.987" critical="yes" starttime="20170503 12:01:53.239">NoSuchWindowException: Message: Unable to find elements on closed window
+</status>
+</test>
+<doc>Log in to the test environment</doc>
+<status status="FAIL" endtime="20170503 12:02:00.991" starttime="20170503 12:01:52.169"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="2" pass="0">Critical Tests</stat>
+<stat fail="2" pass="0">All Tests</stat>
+</total>
+<tag>
+<stat fail="1" pass="0">Smoke</stat>
+</tag>
+<suite>
+<stat fail="2" id="s1" name="Main" pass="0">Main</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20170503 12:01:57.940" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: NoSuchWindowException: Message: Unable to get browser
+</msg>
+</errors>
+</robot>
