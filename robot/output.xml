@@ -1,88 +1,188 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generated="20170503 12:01:52.159" generator="Robot 3.0 (Python 2.7.12 on win32)">
-<suite source="G:\EclipseWorkspace4Selenium\robot\src\main\java\Main.robot" id="s1" name="Main">
-<test id="s1-t1" name="Initialize the environment variables">
+<robot generated="20171028 12:34:58.684" generator="Robot 3.0 (Python 2.7.12 on win32)">
+<suite source="C:\Users\mrahman\git\fedhr-test-automation-robot\robot\src\main\Browsers.robot" id="s1" name="Browsers">
+<kw type="setup" name="Setup webdrivers">
 <kw name="Set Environment Variable" library="OperatingSystem">
 <doc>Sets an environment variable to a specified value.</doc>
 <arguments>
 <arg>no_proxy</arg>
 <arg>127.0.0.1</arg>
 </arguments>
-<msg timestamp="20170503 12:01:53.236" level="INFO">Environment variable 'no_proxy' set to value '127.0.0.1'.</msg>
-<status status="PASS" endtime="20170503 12:01:53.236" starttime="20170503 12:01:53.235"></status>
+<msg timestamp="20171028 12:35:01.660" level="INFO">Environment variable 'no_proxy' set to value '127.0.0.1'.</msg>
+<status status="PASS" endtime="20171028 12:35:01.660" starttime="20171028 12:35:01.659"></status>
 </kw>
 <kw name="Set Environment Variable" library="OperatingSystem">
 <doc>Sets an environment variable to a specified value.</doc>
 <arguments>
 <arg>webdriver.ie.driver</arg>
-<arg>${local_ie_driver2}</arg>
+<arg>${local_ie_driver32}</arg>
 </arguments>
-<msg timestamp="20170503 12:01:53.239" level="FAIL">Variable '${local_ie_driver2}' not found. Did you mean:
-    ${local_ie_driver32}
-    ${local_ie_driver64}</msg>
-<status status="FAIL" endtime="20170503 12:01:53.239" starttime="20170503 12:01:53.236"></status>
+<msg timestamp="20171028 12:35:01.661" level="INFO">Environment variable 'webdriver.ie.driver' set to value 'G:\IEDriverServer_Win32_2.53.1\IEDriverServer.exe'.</msg>
+<status status="PASS" endtime="20171028 12:35:01.661" starttime="20171028 12:35:01.660"></status>
 </kw>
-<timeout value="2 minutes"></timeout>
-<status status="FAIL" endtime="20170503 12:01:53.239" critical="yes" starttime="20170503 12:01:53.234">Variable '${local_ie_driver2}' not found. Did you mean:
-    ${local_ie_driver32}
-    ${local_ie_driver64}</status>
-</test>
-<test id="s1-t2" name="Open up the agency site">
+<status status="PASS" endtime="20171028 12:35:01.661" starttime="20171028 12:35:01.658"></status>
+</kw>
+<test id="s1-t1" name="IE Interaction Test">
 <kw name="Open Browser" library="Selenium2Library">
 <doc>Opens a new browser instance to given URL.</doc>
 <arguments>
 <arg>${url_google}</arg>
 <arg>ie</arg>
 </arguments>
-<msg timestamp="20170503 12:01:53.241" level="INFO">Opening browser 'ie' to base url 'https://fedhr01.econsys.com/frbweb/logon.do?operation=index&amp;client=NPPD'</msg>
-<status status="PASS" endtime="20170503 12:01:57.341" starttime="20170503 12:01:53.240"></status>
+<msg timestamp="20171028 12:35:01.663" level="INFO">Opening browser 'ie' to base url 'https://www.google.com/'</msg>
+<status status="PASS" endtime="20171028 12:35:07.739" starttime="20171028 12:35:01.662"></status>
 </kw>
 <kw name="Wait Until Page Contains" library="Selenium2Library">
 <doc>Waits until `text` appears on current page.</doc>
 <arguments>
 <arg>Google</arg>
 </arguments>
+<status status="PASS" endtime="20171028 12:35:08.054" starttime="20171028 12:35:07.739"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=lst-ib</arg>
+<arg>${search-term}</arg>
+</arguments>
+<msg timestamp="20171028 12:35:08.056" level="INFO">Typing text 'macarronada' into text field 'id=lst-ib'</msg>
+<status status="PASS" endtime="20171028 12:35:08.743" starttime="20171028 12:35:08.055"></status>
+</kw>
+<kw name="Click Button" library="Selenium2Library">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>name=btnK</arg>
+</arguments>
+<msg timestamp="20171028 12:35:08.745" level="INFO">Clicking button 'name=btnK'.</msg>
+<status status="PASS" endtime="20171028 12:35:10.255" starttime="20171028 12:35:08.743"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="Selenium2Library">
+<doc>Waits until `text` appears on current page.</doc>
+<arguments>
+<arg>${search-term}</arg>
+</arguments>
+<status status="PASS" endtime="20171028 12:35:11.238" starttime="20171028 12:35:10.256"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${search-term} Found</arg>
+</arguments>
+<msg timestamp="20171028 12:35:11.239" level="INFO">macarronada Found</msg>
+<status status="PASS" endtime="20171028 12:35:11.240" starttime="20171028 12:35:11.238"></status>
+</kw>
+<kw name="Close Browser" library="Selenium2Library">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20171028 12:35:14.274" starttime="20171028 12:35:11.240"></status>
+</kw>
+<timeout value="2 minutes"></timeout>
+<status status="PASS" endtime="20171028 12:35:14.274" critical="yes" starttime="20171028 12:35:01.661"></status>
+</test>
+<test id="s1-t2" name="Firefox Interaction Test">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Opening Firefox</arg>
+</arguments>
+<msg timestamp="20171028 12:35:14.278" level="INFO">Opening Firefox</msg>
+<status status="PASS" endtime="20171028 12:35:14.279" starttime="20171028 12:35:14.277"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>sys.modules['selenium.webdriver'].common.desired_capabilities.DesiredCapabilities.FIREFOX</arg>
+<arg>sys,selenium.webdriver</arg>
+</arguments>
+<assign>
+<var>${ff default caps}</var>
+</assign>
+<msg timestamp="20171028 12:35:14.282" level="INFO">${ff default caps} = {'acceptInsecureCerts': True, 'browserName': 'firefox', 'marionette': True}</msg>
+<status status="PASS" endtime="20171028 12:35:14.282" starttime="20171028 12:35:14.279"></status>
+</kw>
+<kw name="Set To Dictionary" library="Collections">
+<doc>Adds the given ``key_value_pairs`` and ``items`` to the ``dictionary``.</doc>
+<arguments>
+<arg>${ff default caps}</arg>
+<arg>marionette=${True}</arg>
+</arguments>
+<status status="PASS" endtime="20171028 12:35:14.284" starttime="20171028 12:35:14.283"></status>
+</kw>
+<kw name="Create Webdriver" library="Selenium2Library">
+<doc>Creates an instance of a WebDriver.</doc>
+<arguments>
+<arg>Firefox</arg>
+<arg>firefox_binary=${firefox}</arg>
+<arg>executable_path=${EXECDIR}\\resources\\geckodriver.exe</arg>
+</arguments>
+<msg timestamp="20171028 12:35:14.286" level="INFO">Creating an instance of the Firefox WebDriver</msg>
+<status status="PASS" endtime="20171028 12:35:21.862" starttime="20171028 12:35:14.284"></status>
+</kw>
+<kw name="Go To" library="Selenium2Library">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>https://stackoverflow.com</arg>
+</arguments>
+<msg timestamp="20171028 12:35:21.869" level="INFO">Opening url 'https://stackoverflow.com'</msg>
+<status status="PASS" endtime="20171028 12:35:36.194" starttime="20171028 12:35:21.863"></status>
+</kw>
+<kw name="Title Should Be" library="Selenium2Library">
+<doc>Verifies that current page title equals `title`.</doc>
+<arguments>
+<arg>Stack Overflow - Where Developers Learn, Share, &amp;amp; Build Careers</arg>
+</arguments>
 <kw name="Capture Page Screenshot" library="Selenium2Library">
 <doc>Takes a screenshot of the current page and embeds it into the log.</doc>
-<msg timestamp="20170503 12:01:57.939" level="FAIL">NoSuchWindowException: Message: Unable to get browser
-</msg>
-<status status="FAIL" endtime="20170503 12:01:57.940" starttime="20170503 12:01:57.905"></status>
+<msg timestamp="20171028 12:35:36.372" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20171028 12:35:36.372" starttime="20171028 12:35:36.227"></status>
 </kw>
-<msg timestamp="20170503 12:01:57.940" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: NoSuchWindowException: Message: Unable to get browser
-</msg>
-<msg timestamp="20170503 12:01:57.954" level="FAIL">NoSuchWindowException: Message: Unable to find elements on closed window
-</msg>
-<status status="FAIL" endtime="20170503 12:01:57.954" starttime="20170503 12:01:57.342"></status>
+<msg timestamp="20171028 12:35:36.402" level="FAIL">Title should have been 'Stack Overflow - Where Developers Learn, Share, &amp;amp; Build Careers' but was 'Stack Overflow - Where Developers Learn, Share, &amp; Build Careers'</msg>
+<status status="FAIL" endtime="20171028 12:35:36.403" starttime="20171028 12:35:36.194"></status>
 </kw>
-<kw type="teardown" name="Close All Browsers" library="Selenium2Library">
-<doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" endtime="20170503 12:02:00.987" starttime="20170503 12:01:57.956"></status>
+<kw type="teardown" name="Close Browser" library="Selenium2Library">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20171028 12:35:36.898" starttime="20171028 12:35:36.403"></status>
 </kw>
-<doc>Basic connectivity test</doc>
+<doc>Firefox handling</doc>
 <tags>
 <tag>Smoke</tag>
 </tags>
 <timeout value="2 minutes"></timeout>
-<status status="FAIL" endtime="20170503 12:02:00.987" critical="yes" starttime="20170503 12:01:53.239">NoSuchWindowException: Message: Unable to find elements on closed window
-</status>
+<status status="FAIL" endtime="20171028 12:35:36.898" critical="yes" starttime="20171028 12:35:14.275">Title should have been 'Stack Overflow - Where Developers Learn, Share, &amp;amp; Build Careers' but was 'Stack Overflow - Where Developers Learn, Share, &amp; Build Careers'</status>
 </test>
-<doc>Log in to the test environment</doc>
-<status status="FAIL" endtime="20170503 12:02:00.991" starttime="20170503 12:01:52.169"></status>
+<kw type="teardown" name="Close opened browsers">
+<kw name="Close All Browsers" library="Selenium2Library">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" endtime="20171028 12:35:36.901" starttime="20171028 12:35:36.900"></status>
+</kw>
+<status status="PASS" endtime="20171028 12:35:36.901" starttime="20171028 12:35:36.900"></status>
+</kw>
+<doc>Handling various browsers</doc>
+<status status="FAIL" endtime="20171028 12:35:36.901" starttime="20171028 12:34:58.690"></status>
 </suite>
 <statistics>
 <total>
-<stat fail="2" pass="0">Critical Tests</stat>
-<stat fail="2" pass="0">All Tests</stat>
+<stat fail="1" pass="1">Critical Tests</stat>
+<stat fail="1" pass="1">All Tests</stat>
 </total>
 <tag>
 <stat fail="1" pass="0">Smoke</stat>
 </tag>
 <suite>
-<stat fail="2" id="s1" name="Main" pass="0">Main</stat>
+<stat fail="1" id="s1" name="Browsers" pass="1">Browsers</stat>
 </suite>
 </statistics>
 <errors>
-<msg timestamp="20170503 12:01:57.940" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: NoSuchWindowException: Message: Unable to get browser
-</msg>
+<msg timestamp="20171028 12:35:01.607" level="ERROR">Error in file 'C:\Users\mrahman\git\fedhr-test-automation-robot\robot\src\main\Browsers.robot': Importing test library 'Selenium2LibraryExtensions' failed: ImportError: No module named Selenium2LibraryExtensions
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  c:\python27\lib\site-packages\robotframework-3.0-py2.7.egg
+  C:\WINDOWS\SYSTEM32\python27.zip
+  c:\python27\DLLs
+  c:\python27\lib
+  c:\python27\lib\plat-win
+  c:\python27\lib\lib-tk
+  c:\python27
+  c:\python27\lib\site-packages</msg>
 </errors>
 </robot>
